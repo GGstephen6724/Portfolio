@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+  <header>
+    <h1>Contact Me</h1>
+  </header>
+  
+  <section>
+    <p>I'd love to hear from you! Whether you have a question, feedback, or just want to say hello, feel free to reach out.</p>
+  </section>
+
+  <section>
+    <h2>Contact Form</h2>
+    <form action="process_contact.php" method="POST">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Other Ways to Reach Us</h2>
+    <div class="contact-details">
+      <p><strong>Email:</strong> ggstephen6724@gmail.com</p>
+      <p><strong>Phone:</strong> 941-268-0015</p>
+      <p><strong>Location:</strong> United States, Punta Gorda, Florida</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Follow Us</h2>
+    <div class="social-media">
+      <ul>
+        <li><a href="https://www.linkedin.com/in/george-stephen-476b99227/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/GGstephen6724" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Your Company Name. All Rights Reserved.</p>
+  </footer>
+</body>
+
+<script type="text/javascript">
+  // Initialize EmailJS with your user ID
+  emailjs.init('service_lr29r8b'); // Replace with your User ID
+
+  // Get the form and listen for submission
+  document.getElementById('contact-form').addEventListener('submit', function (event) {
+      event.preventDefault();  // Prevent the default form submission
+
+      // Get form data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // Send email using EmailJS
+      const templateParams = {
+          user_name: name,
+          user_email: email,
+          message: message
+      };
+
+      // Send email through EmailJS service
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+          .then(function (response) {
+              console.log('SUCCESS!', response.status, response.text);
+              document.getElementById('response-message').textContent = 'Message sent successfully!';
+          }, function (error) {
+              console.log('FAILED...', error);
+              document.getElementById('response-message').textContent = 'Something went wrong. Please try again.';
+          });
+  });
+</script>
+
+</html>
