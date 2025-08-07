@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <!-- Dark Mode Toggle Button -->
+    <button class="toggle-button">Toggle Dark Mode</button>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <main>
+        <!-- Project Header: Update the title for each project page -->
+        <header class="project-header">
+            <!-- Link to go back to the main page -->
+            <a href="index.html">← Back to Home</a>
+            <h1>Urban Micros</h1>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="project-content">
+            <!-- Summary Section: Write a brief summary of the project -->
+            <section class="project-section">
+                <h2>Summary</h2>
+                <p>
+                    This repository, Urban Micros, shows off the skills and interest of a passionate microgreen grower. This was my personal business idea where I would grow microgreens 
+                    and sell them to local restaurants, farmers markets, and maybe even a couple grocery stores. Unfortunately, i'm currently NOT running this business, although this is
+                    one of my first websites I've made that I actually impressed myself with at the time. Although it's incomplete, I still feel that this is a perfect respresentation of
+                    "You gotta start somewhere". In this project; I started somewhere, kept it going for a bit, then just got bored and uninterested. Regardless of the negativity, this
+                    development tought me a lot and shaped me to become a better developer.
+                </p>
+                <p>
+                    I forgot to mention, this website includes practice with creating and styling tables, responsive design, hover animations, working contact form with php, and links
+                    to social media.
+                </p>
+            </section>
+
+            <!-- Screenshots & GIFs Section: Add your images here -->
+            <section class="project-section">
+                <h2>Screenshots & Demos</h2>
+                <div class="screenshot-grid">
+                     <!-- Replace these image tags with your own screenshots or GIFs -->
+                    <img src="images/micros/heroSection.PNG" alt="Project Screenshot 1">
+                    <img src="images/micros/contact.PNG" alt="Project Screenshot 2">
+                    <img src="images/micros/tables.PNG" alt="Project Screenshot 3">
+                </div>
+            </section>
+
+            <!-- Code Snippet Section: Add code snippets here -->
+            <section class="project-section">
+                <h2>Code Snippets</h2>
+                <div class="code-container">
+                    <pre>
+// This site didn't use scripts, sooo it's basic. Ill put the contact for at least.
+// If you want to see the HTML and CSS just go to my github:
+
+// https://github.com/ggstephen6724
+
+// Hosted demo on github: https://ggstephen6724.github.io/Urban_Micros/
+
+ <!-- Contact Form Section -->
+  section id="contact-section"
+    div class="contact-form-container"
+      form action="https://formsubmit.co/ggstephen6724@gmail.com" method="POST"
+        div class="form-group"
+          label for="first-name">First Name:
+          input type="text" id="first-name" name="first-name" required placeholder="Enter your first name"
+        /div
+
+        div class="form-group"
+          label for="last-name">Last Name:
+          input type="text" id="last-name" name="last-name" required placeholder="Enter your last name"
+        /div
+
+        div class="form-group"
+          label for="email">Email Address:
+          input type="email" id="email" name="email" required placeholder="Enter your email address"
+        /div
+
+        div class="form-group"
+          label for="request">What would you like to inquire about?
+          textarea id="request" name="request" required placeholder="Please describe your request or inquiry">
+        /div
+
+        div class="form-group"
+          button type="submit">Submit
+        /div
+      /form
+    /div
+  /section
+                    </pre>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="scripts2.js"></script>
+</body>
+</html>

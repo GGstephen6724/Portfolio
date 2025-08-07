@@ -1,0 +1,315 @@
+/* =======================
+   RESET + ROOT VARIABLES
+========================== */
+:root {
+    --bg-color: #fdfdfd;
+    --secondary-bg: #ffffff;
+    --text-color: #222222;
+    --accent-color: #ff4c60;
+    --hero-text-color: #222222;
+    --hero-bg-color: #fff4f4; /* light hero section background */
+    --hero-overlay: rgba(255, 255, 255, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =======================
+   GLOBAL STYLES
+========================== */
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+    cursor: none;
+}
+
+header,
+section {
+    background-color: var(--secondary-bg);
+}
+
+a,
+button {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+body.dark {
+    background-color: #1a1a1a;
+    color: #eee;
+}
+
+/* =======================
+   TOGGLE BUTTON
+========================== */
+.toggle-button {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 999;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+body.dark .toggle-button {
+    background: #eee;
+    color: #000;
+}
+
+/* =======================
+   CUSTOM CURSOR
+========================== */
+.custom-cursor {
+    width: 15px;
+    height: 15px;
+    background-color: #ff4081;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+}
+
+/* =======================
+   HERO SECTION
+========================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px;
+    background-color: var(--hero-bg-color);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1,
+.hero p {
+    color: var(--hero-text-color);
+    transition: color 0.3s ease;
+}
+
+.glow-title {
+    font-size: 3rem;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff4081;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4081;
+    }
+}
+
+.scroll-down {
+    font-size: 2rem;
+    margin-top: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--hero-bg);
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--hero-overlay);
+    z-index: 2;
+}
+
+/* =======================
+   PROJECTS SECTION
+========================== */
+.projects,
+.skills {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+body.dark .project-card {
+    background: #2a2a2a;
+}
+
+/* =======================
+   SKILLS SECTION
+========================== */
+.skill-bar {
+    margin: 1rem auto;
+    max-width: 500px;
+    text-align: left;
+}
+
+.skill-bar span {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.bar {
+    width: 100%;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 20px;
+    background: linear-gradient(to right, #42a5f5, #478ed1);
+    border-radius: 5px;
+}
+
+body.dark .bar {
+    background: #444;
+}
+
+body.dark .fill {
+    background: linear-gradient(to right, #90caf9, #64b5f6);
+}
+
+/* =======================
+   PROJECT DETAIL PAGE
+========================== */
+.project-header {
+    padding: 4rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.project-header a {
+    color: var(--text-color);
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.project-header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.project-section {
+    background-color: var(--secondary-bg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+}
+
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.screenshot-grid img,
+.screenshot-grid video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.code-container {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.code-container pre {
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+body.dark .project-section {
+    background: #2a2a2a;
+}
+
+body.dark .code-container {
+    background-color: #1a1a1a;
+    color: #eee;
+}
