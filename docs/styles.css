@@ -120,18 +120,23 @@ body.dark .toggle-button {
 }
 
 .scroll-down {
-    font-size: 2rem;
-    margin-top: 20px;
-    animation: bounce 2s infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  animation: bounceDown 1.5s infinite;
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(10px);
-    }
+.scroll-down svg {
+  width: 30px;
+  height: 30px;
+  stroke: var(--accent-color); /* or use 'lime' */
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
 }
 
 .hero-bg {
@@ -291,6 +296,80 @@ body.dark .fill {
     object-fit: cover;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Button Style */
+.hacker-btn {
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-family: 'Courier New', monospace;
+  background: black;
+  color: lime;
+  border: 2px solid lime;
+  border-radius: 4px;
+  cursor: url('/cursors/green-glow.cur'), auto; /* Your custom cursor */
+  transition: all 0.3s ease;
+}
+
+.hacker-btn:hover {
+  background: lime;
+  color: black;
+}
+
+/* Overlay Style */
+#hacker-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  color: lime;
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  padding: 40px;
+  z-index: 9999;
+  overflow-y: auto;
+  display: none;
+  cursor: url('/cursors/green-glow.cur'), auto; /* Custom cursor */
+}
+
+#hacker-overlay.show {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#hacker-overlay * {
+  cursor: url('/cursors/green-glow.cur'), auto;
+}
+
+/* Close Button (X) */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: lime;
+  cursor: url('/cursors/green-glow.cur'), pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: white;
+}
+
+/* Terminal Text Container */
+.terminal-text {
+  margin-top: 40px;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+
+
 
 .code-container {
     background-color: #f4f4f4;

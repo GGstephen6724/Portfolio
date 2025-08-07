@@ -47,4 +47,57 @@ document.addEventListener('mousemove', (e) => {
     customCursor.style.top = e.clientY + 'px';
 });
 
+// Something Spicyyyy
 document.addEventListener('DOMContentLoaded', initializeTheme);
+function startResumeSequence() {
+  const overlay = document.getElementById('hacker-overlay');
+  const terminal = document.getElementById('terminal');
+  terminal.innerHTML = ''; // Clear previous content if reopened
+  overlay.classList.add('show');
+
+  const steps = [
+    'ACCESSING RESUME...',
+    'Decrypting data packets...',
+    'Bypassing firewall...',
+    'Routing through proxy node...',
+    'Decrypt sequence: █░░░░░░░░░ 10%',
+    'Decrypt sequence: ███░░░░░░░ 30%',
+    'Decrypt sequence: ██████░░░░ 60%',
+    'Decrypt sequence: ██████████ 100%',
+    'RESUME READY.'
+  ];
+
+  let i = 0;
+
+  function typeLine() {
+    if (i < steps.length) {
+      const line = document.createElement('div');
+      line.textContent = steps[i];
+      terminal.appendChild(line);
+      i++;
+      setTimeout(typeLine, 600);
+    } else {
+      const openBtn = document.createElement('button');
+      openBtn.textContent = 'Open Resume PDF';
+      openBtn.style.marginTop = '20px';
+      openBtn.style.padding = '10px 20px';
+      openBtn.style.fontSize = '1rem';
+      openBtn.style.fontFamily = 'Courier New, monospace';
+      openBtn.style.color = 'black';
+      openBtn.style.background = 'lime';
+      openBtn.style.border = 'none';
+      openBtn.style.cursor = 'url("/cursors/green-glow.cur"), pointer';
+      openBtn.onclick = () => {
+        window.open('images/resume.pdf', '_blank'); 
+      };
+      terminal.appendChild(openBtn);
+    }
+  }
+
+  typeLine();
+}
+
+function closeResumeOverlay() {
+  const overlay = document.getElementById('hacker-overlay');
+  overlay.classList.remove('show');
+}

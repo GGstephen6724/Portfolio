@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <!-- Dark Mode Toggle Button -->
+    <button class="toggle-button">Toggle Dark Mode</button>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <main>
+        <!-- Project Header: Update the title for each project page -->
+        <header class="project-header">
+            <!-- Link to go back to the main page -->
+            <a href="index.html">← Back to Home</a>
+            <h1>Repair Buddy</h1>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="project-content">
+            <!-- Summary Section: Write a brief summary of the project -->
+            <section class="project-section">
+                <h2>Summary</h2>
+                <p>
+                    This repository, Repair Buddy, showcases a clean and modern site that includes dynamic motorcycle search by year, make, and model, authentication modals (Login and 
+                    Signup) powered by Supabase, responsive UI with modern styling and modal popups, and user session handling to persist login state.
+                    The data that is used in this site was hand picked because im not paying for an API lol.
+                    </p>
+                <p>
+                    ***Work in Progress***<br>
+                    I used React with Next.js, Vercel, and Supabase to make this web app. 
+                </p>
+            </section>
+
+            <!-- Screenshots & GIFs Section: Add your images here -->
+            <section class="project-section">
+                <h2>Screenshots & Demos</h2>
+                <div class="screenshot-grid">
+                    <!-- Replace these image tags with your own screenshots or GIFs -->
+                    <img src="images/repairbuddy/landingPage.PNG" alt="Project Screenshot 1">
+                    <img src="images/repairbuddy/createAccount.PNG" alt="Project Screenshot 2">
+                    <img src="images/repairbuddy/login.PNG" alt="Project Screenshot 3">
+                    <img src="images/repairbuddy/r1Specs.PNG" alt="Project Screenshot 4">
+                    <img src="images/repairbuddy/gif.gif" alt="gif 1">
+                </div>
+            </section>
+
+            <!-- Code Snippet Section: Add code snippets here -->
+            <section class="project-section">
+                <h2>Code Snippets</h2>
+                <div class="code-container">
+                    <pre>
+// This is the scripts used in the website
+// If you want to see the HTML and CSS just go to my github:
+
+// https://github.com/ggstephen6724
+
+// Hamburger nav toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+
+  // Accessibility: toggle aria-expanded
+  const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+  hamburger.setAttribute('aria-expanded', String(!expanded));
+});
+
+// Collapsible menu sections
+const collapsibles = document.querySelectorAll('.collapsible');
+collapsibles.forEach(button => {
+  button.addEventListener('click', () => {
+    button.classList.toggle('active');
+    const content = button.nextElementSibling;
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+      content.classList.remove('expanded');
+    } else {
+      content.style.maxHeight = content.scrollHeight + 'px';
+      content.classList.add('expanded');
+    }
+  });
+});
+
+// Back to top button
+const backToTopBtn = document.getElementById('backToTopBtn');
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    backToTopBtn.style.display = 'block';
+  } else {
+    backToTopBtn.style.display = 'none';
+  }
+});
+
+backToTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Open/Closed Status
+ const now = new Date();
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+  const currentDay = now.getDay();
+
+  const currentTotalMinutes = currentHour * 60 + currentMinute;
+
+  const schedule = {
+    0: { open: 420, close: 870 },
+    1: { open: 420, close: 870 },
+    2: { open: 420, close: 870 },
+    3: { open: 420, close: 870 },
+    4: { open: 420, close: 870 },
+    5: { open: 420, close: 870 },
+    6: { open: 420, close: 840 },
+  };
+
+  const line1 = document.querySelector('#hours-status .line-1');
+  const line2 = document.querySelector('#hours-status .line-2');
+  const todaySchedule = schedule[currentDay];
+
+  function formatTime(minutes) {
+    const hour = Math.floor(minutes / 60);
+    const minute = minutes % 60;
+    const period = hour >= 12 ? 'PM' : 'AM';
+    const displayHour = hour % 12 === 0 ? 12 : hour % 12;
+    const displayMinute = minute.toString().padStart(2, '0');
+    return `${displayHour}:${displayMinute} ${period}`;
+  }
+
+  if (
+    currentTotalMinutes >= todaySchedule.open &&
+    currentTotalMinutes < todaySchedule.close
+  ) {
+    line1.textContent = "We’re Open Now!";
+    line1.style.color = "#00ff90";
+    line2.textContent = "";
+  } else {
+    const tomorrowDay = (currentDay + 1) % 7;
+    const tomorrowSchedule = schedule[tomorrowDay];
+    const openTime = formatTime(tomorrowSchedule.open);
+    const closeTime = formatTime(tomorrowSchedule.close);
+
+    line1.textContent = "We’re Closed";
+    line1.style.color = "#ff6464";
+    line2.textContent = `Open tomorrow from ${openTime} to ${closeTime}.`;
+    line2.style.color = "#ffffff";
+  }
+
+updateHoursStatus();
+
+                    </pre>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="scripts2.js"></script>
+</body>
+</html>

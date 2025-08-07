@@ -65,4 +65,48 @@ document.addEventListener('DOMContentLoaded', () => {
     setupDarkModeToggle();
     setupCustomCursor();
 });
+
+function startResumeSequence() {
+  const overlay = document.getElementById('hacker-overlay');
+  const terminal = document.getElementById('terminal');
+  overlay.classList.add('show');
+
+  const steps = [
+    'ACCESSING RESUME...',
+    'Decrypting data packets...',
+    'Bypassing firewall...',
+    'Routing through proxy node...',
+    'Decrypt sequence: █░░░░░░░░░ 10%',
+    'Decrypt sequence: ███░░░░░░░ 30%',
+    'Decrypt sequence: ██████░░░░ 60%',
+    'Decrypt sequence: ██████████ 100%',
+    'RESUME READY.'
+  ];
+
+  let i = 0;
+
+  function typeLine() {
+    if (i < steps.length) {
+      const line = document.createElement('div');
+      line.textContent = steps[i];
+      terminal.appendChild(line);
+      i++;
+      setTimeout(typeLine, 600);
+    } else {
+      const openBtn = document.createElement('button');
+      openBtn.textContent = 'Open Resume PDF';
+      openBtn.style.marginTop = '20px';
+      openBtn.style.padding = '10px 20px';
+      openBtn.style.fontSize = '1rem';
+      openBtn.style.cursor = 'pointer';
+      openBtn.onclick = () => {
+        window.open('/resume.pdf', '_blank'); // Update path to match your resume
+      };
+      terminal.appendChild(openBtn);
+    }
+  }
+
+  typeLine();
+}
+
 }

@@ -15,11 +15,26 @@
     <section class="hero">
         <h1 class="glow-title">George's Portfolio</h1>
         <p class="tagline">Web Developer • Designer • Creator</p>
-        <div class="scroll-down">⬇️</div>
+
+        <!-- Resume Launch Button -->
+        <button class="hacker-btn" onclick="startResumeSequence()">Access Resume</button>
+
+        <!-- Hacker Overlay -->
+        <div id="hacker-overlay" class="hidden">
+        <div class="close-btn" onclick="closeResumeOverlay()">×</div>
+        <div class="terminal-text" id="terminal"></div>
+        </div>
+
+        <div class="scroll-down" onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="lime" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+    </div>
+        
     </section>
 
     <!-- Projects Section -->
-    <section class="projects">
+    <section class="projects" id="projects">
         <h2>Projects</h2>
         <div class="project-grid">
             <div class="project-card">
@@ -38,6 +53,12 @@
                 <a href="project3.html">
                     <h3>Biggy's Place</h3>
                     <p>Veteran-Friendly Southern Restaurant</p>
+                </a>
+            </div>
+            <div class="project-card">
+                <a href="project4.html">
+                    <h3>Repair Buddy</h3>
+                    <p>Motorcycle Repair Hub</p>
                 </a>
             </div>
         </div>
